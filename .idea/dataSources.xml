@@ -29,6 +29,20 @@
         </library>
       </libraries>
     </data-source>
+    <data-source source="LOCAL" name="Rails rails: development" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="87c83991-ff95-42db-8530-eab5113acf7b">
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1:3306/taxi</jdbc-url>
+      <user-name>Iakov</user-name>
+      <user-password>df9bdf92df93df99df98df9fdf9a</user-password>
+      <libraries>
+        <library>
+          <url>file://$USER_HOME$/.RubyMine50/config/jdbc-drivers/mysql-connector-license.txt</url>
+        </library>
+        <library>
+          <url>file://$USER_HOME$/.RubyMine50/config/jdbc-drivers/mysql-connector-java-5.1.26-bin.jar</url>
+        </library>
+      </libraries>
+    </data-source>
     <data-source source="LOCAL" name="Rails rails: development" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="6082d36c-97c7-4e7c-98c3-a9c03a92eeca">
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql:taxi</jdbc-url>

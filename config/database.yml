@@ -2,8 +2,8 @@ development:
   adapter: mysql2
   database: taxi
   encoding: utf8
-  username: root
-  password:
+  username: Iakov
+  password: 1893250
   host: localhost
   port: 3306
 

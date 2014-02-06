@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_filter :filter_user, only: [:order, :status, :cancel, :point,:payment, :status_stat]
+  before_filter :filter_user, only: [:order, :status, :cancel, :point,:payment, :withdrawn, :status_stat]
 
   def share
     u = User.where(ref: params[:ref]).first
@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   def register
     #error, if device_id not matches regular expression rule
     return render json: {errors: "Bad device id"}, status: 400 if params[:device_id] !~ /./
+    return render json: {errors: ""} if User.find_by_device_id(params[:device_id])
     
     #this is line that makes you love ruby on rails, hope it's readable:
     # find user with device_id
@@ -27,7 +28,7 @@ class UsersController < ApplicationController
     return render json: {errors: "Yu driver"} if d=@u.driver            # check that the order is not the driver draws
     return render json: {errors: "Your order is still open"} if @u.orders.find_by_status(Order::Status::OPEN) || @u.orders.find_by_status(Order::Status::SELECT)
     o=@u.orders.create(:address=>params[:address],:gps_long_user=>params[:gps_long_user],:gps_lat_user=>params[:gps_lat_user],:status=>Order::Status::OPEN)
-    @u.points=@u.points-1 if @u.points > 0
+    #@u.points=@u.points-1 if @u.points > 0
     @u.save
     return render json: {id_o: o.id, id_u: @u.id}
   end
@@ -60,6 +61,21 @@ class UsersController < ApplicationController
     return render json: {masage: "payment went"}
   end
 
+  def withdrawn
+    o=@u.orders.find_by_id(params[:order_id])
+    o.status=Order::Status::CLOSED if o.status==Order::Status::DriversTook
+    o.status=Order::Status::UsersVillages if o.status== Order::Status::SELECT
+    return render json: {mesage: 'Thank you for using our application'}
+  end
+
+  def status_stat
+        #@u=User.find(params[:user_id])
+        #o=Order.find_by_user_id(u.device_id)
+        #o.status =Status::OPEN
+        #o.save
+    return render json: {error: "no"} if params
+    return render json: {massage: "ys"} if !params
+  end
   private
   def filter_user
     return render json: {error: "This id does not exist in the database"} if !(@u=User.find_by_id(params[:user_id]))

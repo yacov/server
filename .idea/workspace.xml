@@ -30,9 +30,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8bbff8ea-abc5-4897-8260-f5fd149e2a4e" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/server" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.generators" afterPath="$PROJECT_DIR$/.idea/.generators" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/database.yml" afterPath="$PROJECT_DIR$/config/database.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/rails.iml" afterPath="$PROJECT_DIR$/.idea/rails.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -46,10 +43,9 @@
     <file path="/20131011180101_create_users_and_drivers.rb" changelist="8bbff8ea-abc5-4897-8260-f5fd149e2a4e" time="1389034416647" ignored="false" />
     <file path="/application_controller.rb" changelist="8bbff8ea-abc5-4897-8260-f5fd149e2a4e" time="1388006601682" ignored="false" />
     <file path="/driver.rb" changelist="8bbff8ea-abc5-4897-8260-f5fd149e2a4e" time="1389034459228" ignored="false" />
-    <file path="$PROJECT_DIR$/log/development.log" changelist="8bbff8ea-abc5-4897-8260-f5fd149e2a4e" time="1384626836646" ignored="false" />
     <file path="/orders.rb" changelist="8bbff8ea-abc5-4897-8260-f5fd149e2a4e" time="1385134450362" ignored="false" />
     <file path="/order.rb" changelist="8bbff8ea-abc5-4897-8260-f5fd149e2a4e" time="1389115128898" ignored="false" />
-    <file path="/Dummy.txt" changelist="8bbff8ea-abc5-4897-8260-f5fd149e2a4e" time="1389808775641" ignored="false" />
+    <file path="/Dummy.txt" changelist="8bbff8ea-abc5-4897-8260-f5fd149e2a4e" time="1390976621964" ignored="false" />
     <file path="/database.yml" changelist="8bbff8ea-abc5-4897-8260-f5fd149e2a4e" time="1389807980535" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,10 +71,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="database.yml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/config/database.yml">
+      <file leaf-file-name="drivers_controller.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/drivers_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="19" selection-start="102" selection-end="102" vertical-scroll-proportion="0.18292683">
+            <state line="31" column="30" selection-start="1450" selection-end="1450" vertical-scroll-proportion="1.226913">
               <folding />
             </state>
           </provider>
@@ -146,7 +142,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="RailsProjectView" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -158,7 +154,102 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="RailsProjectView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rails" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rails" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rails" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rails" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Config" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.folders.ConfigFolderNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rails" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rails" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Models" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.folders.ModelsFolderNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rails" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rails" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Models" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.folders.ModelsFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="User" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.ActiveRecordModelClassNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rails" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rails" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Models" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.folders.ModelsFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Order" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.ActiveRecordModelClassNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rails" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rails" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Models" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.folders.ModelsFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Driver" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.ActiveRecordModelClassNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -205,20 +296,52 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rails" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rails" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rails" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rails" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="RailsProjectView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="recentsLimit" value="5" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="dynamic.classpath" value="false" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="Ruby.ViewRefParam.DefaultExtension" value="html.erb" />
+    <property name="dynamic.classpath" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RunManager" selected="Rails.Development: rails">
     <configuration default="true" type="RakeRunConfigurationType" factoryName="Rake">
@@ -553,22 +676,22 @@
     <frame x="-3" y="0" width="1286" height="777" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3297546" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29813665" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297546" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.49534163" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Heroku" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32668713" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27035573" sideWeight="0.5577236" order="3" side_tool="false" content_ui="tabs" x="541" y="378" width="342" height="343" />
-      <window_info id="Heroku" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32822084" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28200972" sideWeight="0.6702454" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3914328" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TeamCity" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35736197" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3297546" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35736197" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="TeamCity" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32874617" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29813665" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28687197" sideWeight="0.642638" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35736197" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.49534163" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297546" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -788,13 +911,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/drivers_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="67" selection-start="1480" selection-end="1480" vertical-scroll-proportion="0.039577838">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20131011180101_create_users_and_drivers.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="33" column="31" selection-start="2233" selection-end="2248" vertical-scroll-proportion="1.3060687" />
@@ -812,7 +928,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/database.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="19" selection-start="102" selection-end="102" vertical-scroll-proportion="0.18292683">
+        <state line="9" column="16" selection-start="150" selection-end="151" vertical-scroll-proportion="0.29972753">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/drivers_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="30" selection-start="1450" selection-end="1450" vertical-scroll-proportion="1.226913">
           <folding />
         </state>
       </provider>

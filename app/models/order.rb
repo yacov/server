@@ -10,5 +10,7 @@ private
     CLOSED        = 3
     UsersClosed   = 4
     DriversClosed = 5
+    UsersVillages = 6
+    DriversTook   = 7
   end
 end

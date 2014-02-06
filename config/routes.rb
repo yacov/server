@@ -10,11 +10,12 @@ Taxi::Application.routes.draw do
   end
 
   resources :users, :only => [] do
-    get 'point'     => :point      #check points when the application  reqvest example: localhost:3000/users/<id>2/point
-    get 'order'     => :order      #order taxi                         reqvest example: localhost:3000/users/<id>4/order?address=moscva,mogevelovay5/4&gps_lat_user=45.254321&gps_long_user=14.457547
-    get 'status'    => :status     #status order                       reqvest example: localhost:3000/users/<id>1/status?order_id=1
-    get 'cancel'    => :cancel     #cansel from order                  reqvest example: localhost:3000/users/<id>4/cancel?order_id=4
-    get 'payment'   => :payment    #payment order points               reqvest example: localhost:3000/users/<id>4/payment?points=2
+    get 'point'     => :point      #check points when the application  request example: localhost:3000/users/<id>2/point
+    get 'order'     => :order      #order taxi                         request example: localhost:3000/users/<id>4/order?address=moscva,mogevelovay5/4&gps_lat_user=32.084229&gps_long_user=34.888008
+    get 'status'    => :status     #status order                       request example: localhost:3000/users/<id>1/status?order_id=1
+    get 'cancel'    => :cancel     #cansel from order                  request example: localhost:3000/users/<id>4/cancel?order_id=4
+    get 'payment'   => :payment    #payment order points               request example: localhost:3000/users/<id>4/payment?points=2
+    get 'withdrawn' => :withdrawn  #user took the driver               request example: localhost:3000/users/<id>/withdrawn?order_id=1
 
     get 'reserved'  => :reserved   #reserved order
 
@@ -23,11 +24,12 @@ Taxi::Application.routes.draw do
 
   resources :drivers, :only => [] do
     #reqvest list of orders
-    get 'point'     => :point      #check points when the application  reqvest example: localhost:3000/drivers/2/point
-    get 'order'     => :order      #order list users                   reqvest example: localhost:3000/drivers/2/order?gps_long_driver=34.884757&gps_lat_driver=32.084041
-    get 'accept'    => :accept     #option of ordering                 reqvest exemple: localhost:3000/drivers/<id>2/accept?order_id=1&gps_long_drivers=45.471325&gps_lat_drivers=45.587214
-    get 'cancel'    => :cancel     #cansel from order                  reqvest example: localhost:3000/drivers/<id>1/cancel?order_id=1
-    get 'status'    => :status     #check order status driver          reqvest example: localhost:3000/drivers/1/status?order_id=2&gps_long_drivers=34.884757&gps_lat_drivers=32.084055
+    get 'point'     => :point      #check points when the application  request example: localhost:3000/drivers/2/point
+    get 'order'     => :order      #order list users                   request example: localhost:3000/drivers/2/order?gps_long_driver=34.884757&gps_lat_driver=32.084041
+    get 'accept'    => :accept     #option of ordering                 request example: localhost:3000/drivers/<id>2/accept?order_id=1&gps_long_drivers=45.471325&gps_lat_drivers=45.587214
+    get 'cancel'    => :cancel     #cansel from order                  request example: localhost:3000/drivers/<id>1/cancel?order_id=1
+    get 'status'    => :status     #check order status driver          request example: localhost:3000/drivers/1/status?order_id=2&gps_long_drivers=34.884757&gps_lat_drivers=32.084055
+    get 'took'      => :took       #driver took Users                  request example: localhost:3000/drivers/<id>/took?order_id=1
 
     get 'delivered' => :delivered  #
   end

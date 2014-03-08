@@ -13,7 +13,8 @@ class UsersController < ApplicationController
   def register
     #error, if device_id not matches regular expression rule
     return render json: {status:"ERROR",message: "Bad device id"}, status: 400 if params[:device_id] !~ /./
-    return render json: {status:"ERROR" } if u_temp=User.find_by_device_id(params[:device_id])
+    ur=User.where(device_id: params[:device_id]).first
+    return render json: {status:"ERROR",message: "As the driver, you have already taken place", id: ur.id  } if ur
     
     #this is line that makes you love ruby on rails, hope it's readable:
     # find user with device_id
@@ -27,9 +28,10 @@ class UsersController < ApplicationController
   def order
     return render json: {status:"ERROR",message: "Yu driver"} if d=@u.driver            # check that the order is not the driver draws
     return render json: {status:"ERROR",message: "Your order is still open"} if @u.orders.find_by_status(Order::Status::OPEN) || @u.orders.find_by_status(Order::Status::SELECT)
-    o=@u.orders.create(:address=>params[:address],:gps_long_user=>params[:gps_long_user],:gps_lat_user=>params[:gps_lat_user],:status=>Order::Status::OPEN)
+    o=@u.orders.create(:address=>params[:address],:gps_long_user=>params[:gps_long_user],:gps_lat_user=>params[:gps_lat_user],:status=>Order::Status::OPEN,:time_start=>Time.new(),:date=>Time.new())
+
     #@u.points=@u.points-1 if @u.points > 0
-    @u.save
+    #@u.save
     return render json: {status:"OK",id_orders: o.id}
   end
   def status
@@ -43,12 +45,15 @@ class UsersController < ApplicationController
     return render json: {status:"OK",name: d.name, gps_long_drivers: o.gps_long_drivers, gps_lat_drivers: o.gps_lat_drivers,brand_car:d.brand,car_id: d.car_id,phone:ud.phone  }
   end
   def cancel
-     return render json: {status:"ERROR",message: "It id not open order"} if !o=@u.orders
-     o.find_by_id(params[:order_id]).update_attribute(:status, Order::Status::UsersClosed)
+     return render json: {status:"ERROR",message: "It id not orders"} if !o=@u.orders
+     return render json: {status:"ERROR",message: "All your orders are closed"} if !o=o.where(:status=> [Order::Status::SELECT,Order::Status::OPEN]).first
+     o.update_attributes(status: Order::Status::UsersClosed,time_close: Time.new)
      return render json: {status:"OK",message: "Order closed"}
   end
   def point
-    return render json: {id_users: @u.id, points: @u.points}
+    #q=Order.find_by_sql"UPDATE orders SET status = #{Order::Status::StopTimeOut} WHERE (time_start-#{Time.new})*(-24)*60 "
+    result=Order.find_by_sql"SELECT*, 'time_start'-#{Time.new} AS time FROM orders  "
+    return render json: {status:"OK", id_users: @u.id, points: @u.points}
   end
 
   def payment
@@ -63,10 +68,9 @@ class UsersController < ApplicationController
   end
 
   def withdrawn
-
     o=@u.orders.find_by_id(params[:order_id])
-    o.update_attribute(:status, Order::Status::CLOSED) if o.status==Order::Status::DriversTook
-    o.update_attribute(:status, Order::Status::UsersVillages)  if o.status== Order::Status::SELECT
+    o.update_attributes(status: Order::Status::CLOSED,time_close: Time.new) if o.status==Order::Status::DriversTook
+    o.update_attributes(status: Order::Status::UsersVillages,time_close: Time.new)  if o.status== Order::Status::SELECT
     return render json: {status:"OK",message: 'Thank you for using our application'}
   end
 
@@ -82,5 +86,4 @@ class UsersController < ApplicationController
   def filter_user
     return render json: {status:"ERROR",message: "This id does not exist in the database"} if !(@u=User.find_by_id(params[:user_id]))
   end
-
 end

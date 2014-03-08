@@ -12,5 +12,6 @@ private
     DriversClosed = 5
     UsersVillages = 6
     DriversTook   = 7
+    StopTimeOut   = 8
   end
 end

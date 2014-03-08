@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   #protect_from_forgery
   rescue_from ActiveRecord::RecordNotFound, :with => :render_missing
+
   private
   def render_missing
     return render json: {errors: "Error while searching ID"}

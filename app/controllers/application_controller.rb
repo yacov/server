@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     render file: "public/404.html",status: 404 ,layout: false
   end
   def filter_timeout
-    #Order.connection.execute('UPDATE orders SET orders.status = 8, orders.time_close=(TIMEDIFF(NOW(),UTC_TIMESTAMP)) WHERE orders.status = 1 AND (TIMESTAMPDIFF(MINUTE,orders.time_start,(TIMEDIFF(NOW(),UTC_TIMESTAMP)))>10')
+    #Order.connection.execute('UPDATE orders SET orders.status = 8, orders.time_close=UTC_TIMESTAMP() WHERE orders.status = 1 AND (TIMESTAMPDIFF(MINUTE,orders.time_start,UTC_TIMESTAMP)>10)')
   end
 end
 

@@ -28,8 +28,7 @@ class UsersController < ApplicationController
   def order
     return render json: {status:"ERROR",message: "Yu driver"} if d=@u.driver            # check that the order is not the driver draws
     return render json: {status:"ERROR",message: "Your order is still open"} if @u.orders.find_by_status(Order::Status::OPEN) || @u.orders.find_by_status(Order::Status::SELECT)
-    o=@u.orders.create(:address=>params[:address],:gps_long_user=>params[:gps_long_user],:gps_lat_user=>params[:gps_lat_user],:status=>Order::Status::OPEN,:time_start=>Time.new(),:date=>Time.new())
-
+    o=@u.orders.create(:country=>params[:country],:city=>params[:city],:street=>params[:street],:house=>params[:house],:gps_long_user=>params[:gps_long_user],:gps_lat_user=>params[:gps_lat_user],:status=>Order::Status::OPEN,:time_start=>Time.now)
     #@u.points=@u.points-1 if @u.points > 0
     #@u.save
     return render json: {status:"OK",id_orders: o.id}
@@ -51,8 +50,6 @@ class UsersController < ApplicationController
      return render json: {status:"OK",message: "Order closed"}
   end
   def point
-    #q=Order.find_by_sql"UPDATE orders SET status = #{Order::Status::StopTimeOut} WHERE (time_start-#{Time.new})*(-24)*60 "
-    result=Order.find_by_sql"SELECT*, 'time_start'-#{Time.new} AS time FROM orders  "
     return render json: {status:"OK", id_users: @u.id, points: @u.points}
   end
 
@@ -74,6 +71,10 @@ class UsersController < ApplicationController
     return render json: {status:"OK",message: 'Thank you for using our application'}
   end
 
+  def reports_user
+    result=User.find_by_sql"SELECT users.id,users.email,users.points FROM users LEFT JOIN drivers ON users.id=drivers.user_id WHERE drivers.user_id is NULL"
+    return render :json => result.map{|result|{status:"OK", :id_driver=> result.id, :email=>result.email,:points=>result.points}} if result.any?                #, :name=> result.name
+  end
   def status_stat
         #@u=User.find(params[:user_id])
         #o=Order.find_by_user_id(u.device_id)
@@ -84,6 +85,7 @@ class UsersController < ApplicationController
   end
   private
   def filter_user
+    filter_timeout
     return render json: {status:"ERROR",message: "This id does not exist in the database"} if !(@u=User.find_by_id(params[:user_id]))
   end
 end

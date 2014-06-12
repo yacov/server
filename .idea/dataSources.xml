@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" hash="558456043">
-    <data-source source="LOCAL" name="Rails rails: test" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="9d809aea-ec6d-45a1-ada2-c75a9a37c7bb">
+    <data-source source="LOCAL" name="Rails rails: test" uuid="9d809aea-ec6d-45a1-ada2-c75a9a37c7bb">
+      <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql:test</jdbc-url>
       <user-name>postgres</user-name>
@@ -15,7 +16,8 @@
         </library>
       </libraries>
     </data-source>
-    <data-source source="LOCAL" name="Rails rails: production" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="f5d5d8c4-aeb9-457f-ac0c-f0b1b8581784">
+    <data-source source="LOCAL" name="Rails rails: production" uuid="f5d5d8c4-aeb9-457f-ac0c-f0b1b8581784">
+      <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql:production</jdbc-url>
       <user-name>postgres</user-name>
@@ -29,7 +31,8 @@
         </library>
       </libraries>
     </data-source>
-    <data-source source="LOCAL" name="Rails rails: development" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="87c83991-ff95-42db-8530-eab5113acf7b">
+    <data-source source="LOCAL" name="Rails rails: development" uuid="87c83991-ff95-42db-8530-eab5113acf7b">
+      <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://127.0.0.1:3306/taxi</jdbc-url>
       <user-name>Iakov</user-name>
@@ -43,7 +46,8 @@
         </library>
       </libraries>
     </data-source>
-    <data-source source="LOCAL" name="Rails rails: development" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="6082d36c-97c7-4e7c-98c3-a9c03a92eeca">
+    <data-source source="LOCAL" name="Rails rails: development" uuid="6082d36c-97c7-4e7c-98c3-a9c03a92eeca">
+      <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql:taxi</jdbc-url>
       <user-name>postgres</user-name>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140225070703) do
+ActiveRecord::Schema.define(:version => 20131011180101) do
 
   create_table "drivers", :id => false, :force => true do |t|
     t.integer  "user_id"
@@ -26,17 +26,16 @@ ActiveRecord::Schema.define(:version => 20140225070703) do
 
   create_table "orders", :force => true do |t|
     t.integer  "user_id"
-    t.string   "address"
+    t.string   "country"
+    t.string   "city"
+    t.string   "street"
+    t.string   "house"
     t.float    "gps_long_user"
     t.float    "gps_lat_user"
     t.integer  "driver_id"
     t.float    "gps_long_drivers"
     t.float    "gps_lat_drivers"
     t.integer  "status"
-    t.string   "country"
-    t.string   "city"
-    t.string   "street"
-    t.string   "house"
     t.datetime "time_start"
     t.datetime "time_close"
   end

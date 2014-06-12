@@ -1,17 +1,21 @@
 Taxi::Application.routes.draw do
   scope '/users', controller: 'users' do
-    get 'share/:ref' => :share          #reqvest example: localhost:3000/users/share/d6450d9f689653d6548ea7b51103073e
-    get 'register'   => :register       #reqvest example: localhost:3000/users/register?device_id=1&email=Ua1@gmail.com&phone=3232323232323
+    get 'share/:ref' => :share          #reqvest example:    localhost:3000/users/share/d6450d9f689653d6548ea7b51103073e
+    get 'register'   => :register       #reqvest example:    localhost:3000/users/register?device_id=1&email=Ua1@gmail.com&phone=3232323232323
+    get 'reports'    => :reports_user   #report customers    request example: localhost:3000/users/reports?
+    get 'reports_all'=> :reports_all
   end
 
   scope '/drivers', controller: 'drivers' do
-    get 'share'      => :share          #reqvest example: localhost:3000/drivers/share/d6450d9f689653d6548ea7b51103073e
-    get 'register'   => :register       #reqvest example: localhost:3000/drivers/register?device_id=2&phone=22222222222&email=Da1@gmail.com&name=DIK&car_id=AB1478521&brand=volkswagen
+    get 'share'      => :share             #reqvest example: localhost:3000/drivers/share/d6450d9f689653d6548ea7b51103073e
+    get 'register'   => :register          #reqvest example: localhost:3000/drivers/register?device_id=2&phone=22222222222&email=Da1@gmail.com&name=DIK&car_id=AB1478521&brand=volkswagen
+    get 'reports'    => :reports_driver    #report customers request example: localhost:3000/users/reports?
+    get 'reports_all'=> :reports_all
   end
 
   resources :users, :only => [] do
     get 'point'     => :point      #check points when the application  request example: localhost:3000/users/<id>2/point
-    get 'order'     => :order      #order taxi                         request example: localhost:3000/users/<id>4/order?address=moscva,mogevelovay5/4&gps_lat_user=32.084229&gps_long_user=34.888008
+    get 'order'     => :order      #order taxi                         request example: localhost:3000/users/<id>4/order?country=Russia&city=Moscow&street=Minsk&house=55&gps_lat_user=32.084229&gps_long_user=34.888008 #address=moscva,mogevelovay5/4
     get 'status'    => :status     #status order                       request example: localhost:3000/users/<id>1/status?order_id=1
     get 'cancel'    => :cancel     #cansel from order                  request example: localhost:3000/users/<id>4/cancel?order_id=4
     get 'payment'   => :payment    #payment order points               request example: localhost:3000/users/<id>4/payment?points=2

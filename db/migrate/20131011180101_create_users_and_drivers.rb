@@ -23,23 +23,21 @@ class CreateUsersAndDrivers < ActiveRecord::Migration
     add_index :drivers, :user_id                        #primary key of the table
 
 
-    create_table :orders do |t|
-      t.integer  :user_id                               #field to link the client to the table
-      t.string   :address                               #address of the client is determined at the time of booking
-      #t.string  :country
-      #t.string   :city
-      #t.string   :street
-      #t.string    :house
-      t.float    :gps_long_user,    :limit=> 30         #longitude coordinates of the client
-      t.float    :gps_lat_user,     :limit=> 30         #client coordinates latitude
-      t.integer  :driver_id                             #field to link the driver to the table
-      t.float    :gps_long_drivers, :limit=> 30         #longitude coordinates of the drivers
-      t.float    :gps_lat_drivers,  :limit=> 30         #driver coordinates latitude
-                                                        #t.string   :good_luck                             #field successfully completed order
-                                                        #t.string   :cancellations                         #rusal to Order
-      t.integer   :status                                #determining the status of an order
-      #t.date     :date
-      #t.time     :time
+    create_table   :orders do |t|
+      t.integer    :user_id                               #field to link the client to the table
+      #t.string   :address                               #address of the client is determined at the time of booking
+      t.string     :country
+      t.string     :city
+      t.string     :street
+      t.string     :house
+      t.float      :gps_long_user,    :limit=> 30         #longitude coordinates of the client
+      t.float      :gps_lat_user,     :limit=> 30         #client coordinates latitude
+      t.integer    :driver_id                             #field to link the driver to the table
+      t.float      :gps_long_drivers, :limit=> 30         #longitude coordinates of the drivers
+      t.float      :gps_lat_drivers,  :limit=> 30         #driver coordinates latitude
+      t.integer    :status                               #determining the status of an order
+      t.datetime       :time_start
+      t.datetime       :time_close
     end
     add_index :orders, :user_id
     add_index :orders, :driver_id

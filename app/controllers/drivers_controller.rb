@@ -43,7 +43,7 @@ class DriversController < ApplicationController
     gps_long_drivers = params[:gps_long_drivers].to_f
     gps_lat_drivers = params[:gps_lat_drivers].to_f                                                                                                                                                                                                                                #* 6378245
     result=Order.find_by_sql"SELECT *, ((ACOS(SIN(#{gps_lat_drivers} * PI() / 180) * SIN(`gps_lat_user` * PI() / 180) + COS(#{gps_lat_drivers} * PI() / 180) * COS(`gps_lat_user` * PI() / 180) * COS((#{gps_long_drivers} - `gps_long_user`) * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance FROM orders WHERE status = #{Order::Status::OPEN} HAVING distance <= 3 ORDER BY distance LIMIT 10"
-    return render :json => result.map{|result|{status:"OK", :id_result=> result.id, :user_id=> result.user_id, :dist=>result.distance.to_f, :address=> result.address }} if result.any?
+    return render :json => result.map{|result|{status:"OK", :id_result=> result.id, :user_id=> result.user_id, :dist=>result.distance.to_f, :city=> result.city, :street=>result.street }} if result.any?
     return render json: {status:"ERROR", message:"no orders"}
 
     #result = Order.find_by_sql" SELECT *, 2 * 6371* ASIN(SQRT(POW(SIN(((#{gps_lat_drivers}-gps_lat_user) / 2)*PI()/180), 2)+COS(#{gps_lat_drivers}*PI()/180) * COS(gps_lat_user*PI()/180) *POW(SIN(((#{gps_long_drivers}- gps_long_user) / 2)*PI()/180), 2)))  AS distance FROM orders WHERE status = #{Status::OPEN} HAVING distance <= 5 ORDER BY distance LIMIT 10"
@@ -69,7 +69,7 @@ class DriversController < ApplicationController
     d.orders<<o
     o.update_attributes(gps_long_drivers: params[:gps_long_drivers],gps_lat_drivers: params[:gps_lat_drivers], status: Order::Status::SELECT)
     @u.points=@u.points-1
-    return render json: {status:"OK", message:"Your order"}
+    return render json: {status:"OK", message:"Your order",:city=> o.city, :street=>o.street,:house=>o.house,:gps_long_user=>o.gps_long_user,:gps_lat_user=>o.gps_lat_user,}
   end
 
   def cancel
@@ -87,15 +87,15 @@ class DriversController < ApplicationController
     o.update_attributes(status: Order::Status::DriversTook,time_close: Time.new) if o.status== Order::Status::SELECT
     return render json: {status:"OK", message: 'Thank you for using our application'}
   end
-
+  def reports_driver
+    result=User.find_by_sql"SELECT users.id, users.email,users.points FROM users,drivers WHERE users.id=drivers.user_id"
+    return render :json => result.map{|result|{status:"OK", :id_driver=> result.id,:email=>result.email,:points=>result.points}} if result.any?                #, :name=> result.name
+  end
 
   private
   def filter_driver
+    filter_timeout
     return render json: {status:"ERROR",message: "This id does not exist in the database"} if !(@u=User.find_by_id(params[:driver_id]))
   end
-  def filter_timeout
-    Order.find_by_sql"UPDATE order SET status = #{Order::Status::StopTimeOut} WHERE (time_start-#{Time.new})*(-24)*60 "
-  end
 end
-
 

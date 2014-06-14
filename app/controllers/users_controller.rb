@@ -22,6 +22,7 @@ class UsersController < ApplicationController
     u = User.where(device_id: params[:device_id]).first_or_initialize(ref: Digest::MD5.hexdigest("#{params[:device_id]}:#{Time.now.to_f}"))
     u.email = params[:email] if params[:email] =~ /.@.+\..+/ #TODO: stronger email validation
     u.phone = params[:phone]
+	u.points=10
     u.save                 #will create new or update existing
     return render json: {status:"OK",id_users: u.id, ref: u.ref}
   end

@@ -25,6 +25,7 @@ class DriversController < ApplicationController
     u = User.where(device_id: params[:device_id]).first_or_initialize(ref: Digest::MD5.hexdigest("#{params[:device_id]}:#{Time.now.to_f}"))
     u.phone= params[:phone]
     u.email= params[:email] if params[:email] =~ /.@.+\..+/ #TODO: stronger email validation
+	u.points=10
     u.save
     u.build_driver(:name=>params[:name],:car_id=>params[:car_id], :brand=>params[:brand]).save
 
@@ -43,7 +44,7 @@ class DriversController < ApplicationController
     gps_long_drivers = params[:gps_long_drivers].to_f
     gps_lat_drivers = params[:gps_lat_drivers].to_f                                                                                                                                                                                                                                #* 6378245
     result=Order.find_by_sql"SELECT *, ((ACOS(SIN(#{gps_lat_drivers} * PI() / 180) * SIN(`gps_lat_user` * PI() / 180) + COS(#{gps_lat_drivers} * PI() / 180) * COS(`gps_lat_user` * PI() / 180) * COS((#{gps_long_drivers} - `gps_long_user`) * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance FROM orders WHERE status = #{Order::Status::OPEN} HAVING distance <= 3 ORDER BY distance LIMIT 10"
-    return render :json => result.map{|result|{status:"OK", :id_result=> result.id, :user_id=> result.user_id, :dist=>(result.distance.round 6) , :city=> result.city, :street=>result.street }} if result.any?
+    return render :json => result.map{|result|{status:"OK", :id_result=> result.id, :user_id=> result.user_id, :dist=>(result.distance.round 3) , :city=> result.city, :street=>result.street }} if result.any?
     return render json: {status:"ERROR", message:"no orders"}
 
     #result = Order.find_by_sql" SELECT *, 2 * 6371* ASIN(SQRT(POW(SIN(((#{gps_lat_drivers}-gps_lat_user) / 2)*PI()/180), 2)+COS(#{gps_lat_drivers}*PI()/180) * COS(gps_lat_user*PI()/180) *POW(SIN(((#{gps_long_drivers}- gps_long_user) / 2)*PI()/180), 2)))  AS distance FROM orders WHERE status = #{Status::OPEN} HAVING distance <= 5 ORDER BY distance LIMIT 10"
